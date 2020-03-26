@@ -195,7 +195,7 @@ def findcentroids(vregs,h,w,numpts):
 
 fullstart = time.time()
 openf = "loremipsum.png"
-path = "/Users/benjili/Programming/Python/artbot/samples/"+openf
+path = "./samples/"+openf
 img = cv2.imread(path,cv2.IMREAD_GRAYSCALE)
 height,width = img.shape[:2]
 print (height,width)
