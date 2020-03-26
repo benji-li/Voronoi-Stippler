@@ -17,8 +17,7 @@
    
  The program works best with high-contrast images, adjusting contrast in image-processing software prior to using the stippler will lead to a clearer result.
  
- ### Other Notes
-  The manual stippler directory contains a much slower version of voronoiprocessor.py, but is useful if you wish to visualize and understand the logic behind the algorithm. I don't recommend using it for images with greater than 200x200 pixels.
+ Currently working on optimizing the program more, since the image initialization step is very slow. It is recommended to keep images smaller than 800x800 pixels
   
   
   
