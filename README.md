@@ -5,13 +5,13 @@
 
 [Stippling Visualization](https://media.giphy.com/media/Qx5M3UWdhifXn8lZx7/giphy.gif)
 
-### Trying the Program
+## Trying the Program
  Ensure that the following libraries are installed along with a distribution of Python3:
  * OpenCV
  * NumPy
  * PIL
  
- Run voronoiprocessor.py, specify path for source image as well as a target number of stipples.
+ Specify path for source image as well as a target number of stipples.
  
  Adjusting the bounds for target densities (ubound and lbound) will provide different degrees of stipple densities and clustering, to varying results. I have found that the default values work rather well for most images.
    
