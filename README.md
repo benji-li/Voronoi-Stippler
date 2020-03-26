@@ -17,7 +17,7 @@
    
  The program works best with high-contrast images, adjusting contrast in image-processing software prior to using the stippler will lead to a clearer result.
  
- Currently working on optimizing the program more, since the image initialization step is very slow. It is recommended to keep images smaller than 800x800 pixels
+ Currently working on optimizing the program more, since the image initialization step is very slow. It is recommended to keep images smaller than 800x800 pixels.
   
   
   
