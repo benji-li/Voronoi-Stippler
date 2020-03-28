@@ -123,78 +123,8 @@ def splitmerge(depthmap,lower,upper,vregs,numpts,h,w):
             newpts.append(pt)
     return newpts
 
-#UNUSED FUNCTIONS
-#finds centroid of a single specified region
-def centroid(vregs,h,w,regnum):
-    #pix = np.zeros((w,h))
-    pix=[]
-    for x in range(h):
-        pixrow = []
-        for y in range(w):
-            if vregs[x][y]==regnum:
-                pixrow.append(255)
-            else:
-                pixrow.append(0)
-        #pix[x]=pixrow
-        pix.append(pixrow)
-    pix = np.array(pix,dtype=np.uint8)
-    moment = cv2.moments(pix)
-    centx = int(moment["m10"]/moment["m00"])
-    centy = int(moment["m01"]/moment["m00"])
-    return (centx,centy)
-#finds centroids of every plotted voronoi region
-def findcentroidsdict(vregs,h,w,numpts):
-    dicpix = {}
-    dicpixrows = {}
-    #initialize dicpix & rows = num of regions needed
-    for pt in range(numpts):
-        dicpix[pt+1]=[]
-        dicpixrows[pt+1]=[]
-    #isolating every region into own dictionary entry
-    for x in range(h):
-        for y in range(w):
-            for z in dicpixrows.keys():
-                if z ==vregs[x][y]:
-                    dicpixrows[z].append(255)
-                else:
-                    dicpixrows[z].append(0)
-        for k in dicpixrows.keys():
-            dicpix[k].append(dicpixrows[k])
-            dicpixrows[k]=[]
-    for k in dicpix.keys():
-        dicpix[k]=np.array(dicpix[k],dtype=np.uint8)
-        M=cv2.moments(dicpix[k])
-        cX = int(M["m10"] / M["m00"])
-        cY = int(M["m01"] / M["m00"])
-#finds all centroids --> faster than dictionary equivalent
-def findcentroids(vregs,h,w,numpts):
-    pix=[]
-    pixrows=[]
-    for a in range(numpts):
-        pix.append([])
-        pixrows.append([])
-    for x in range(h):
-        for y in range(w):
-            for i in range(len(pixrows)):
-                pixrows[i].append(0)
-            pixrows[vregs[x][y]-1][-1]=255
-        for z in range(len(pix)):
-            pix[z].append(pixrows[z])
-            pixrows[z]=[]
-    cents = []
-    for b in range(len(pix)):
-        shape=np.array(pix[b],dtype=np.uint8)
-        M=cv2.moments(shape)
-        print (M)
-        cX = int(M["m01"] / M["m00"])
-        cY = int(M["m10"] / M["m00"])
-        if 255 not in pix[b]:
-            print ('nope!',cX,cY)
-        cents.append((cX,cY))
-    return cents
-
 fullstart = time.time()
-openf = "loremipsum.png"
+openf = "glong.png"
 path = "./samples/"+openf
 img = cv2.imread(path,cv2.IMREAD_GRAYSCALE)
 height,width = img.shape[:2]
@@ -209,8 +139,8 @@ for x in range(1,height,50):
     for y in range(1,width,50):
         pts.append((x,y))
 
-lbound = 1 #increases amount of points
-ubound = 3 #increases density
+lbound = 5 #increases amount of points
+ubound = 8 #increases density
 
 despts = 8000 #target #
 while len(pts)<despts:
