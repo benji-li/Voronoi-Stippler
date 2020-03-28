@@ -13,7 +13,7 @@
  
  Specify path for source image as well as a target number of stipples.
  
- Adjusting the bounds for target densities (ubound and lbound) will provide different degrees of stipple densities and clustering, to varying results. I have found that the default values work rather well for most images.
+ Adjusting the bounds for target densities (ubound and lbound) will provide different stipple densities and clustering, to varying degrees of success. I have found that the default values work rather well for most images.
    
  The program works best with high-contrast images, adjusting contrast in image-processing software prior to using the stippler will lead to a clearer result.
  
