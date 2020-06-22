@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
 from cv2 import cv2 
@@ -6,40 +5,11 @@ import time
 import math
 import os
 
-#drawing points according to old method 
-def addpoints(ptsx,ptsy,height,width):
-    pixels = []
-    for row in range(height):
-        pixrow=[]
-        for col in range(width):
-            yespix=False
-            if row in ptsx:
-                for x in range(len(ptsx)):
-                    if ptsx[x]==row and ptsy[x]==col:
-                        pixrow.append((0,0,0))
-                        yespix = True
-                        break
-            if yespix==False:
-                pixrow.append((255,255,255))
-        pixels.append(pixrow)
-    #initial array with all the points
-    array = np.array(pixels, dtype=np.uint8)   
-    #use PIL to create/save image
-    new_image = Image.fromarray(array)
-    new_image.save('new.png')
-
 def drawpts(pts,h,w,imgname):
-    pixels = []
-    for x in range(h):
-        pixrow=[]
-        for y in range(w):
-            if (x,y) in pts:
-                pixrow.append((0,0,0))
-            else:
-                pixrow.append((255,255,255))
-        pixels.append(pixrow)
-    pixarray = np.array(pixels, dtype = np.uint8)
-    new_img = Image.fromarray(pixarray)
+    pixels=np.full((h,w),255)
+    for pt in pts:
+        pixels[pt[0]][pt[1]]=0
+    new_img = Image.fromarray(pixels.astype(np.uint8))
     new_img.save(imgname)
 
 def finddensities(img,sumdict,vregs,h,w,numpts):
