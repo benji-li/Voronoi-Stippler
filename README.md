@@ -5,7 +5,9 @@
 
 [Stippling Visualization (45644 points)](https://media.giphy.com/media/Qx5M3UWdhifXn8lZx7/giphy.gif)
 
-## Trying the Program
+[Stippling Visualization 2 (38688 points)](https://media.giphy.com/media/XxvRNKTKTDPkrMAYTb/giphy.gif)
+
+## Try the Program!
  Ensure that the following libraries are installed along with a distribution of Python3:
  * OpenCV
  * NumPy
@@ -15,9 +17,7 @@
  
  Adjusting the bounds for target densities (ubound and lbound) will provide different stipple densities and clustering, to varying degrees of success. I have found that the default values work rather well for most images.
    
- The program works best with high-contrast images, adjusting contrast in image-processing software prior to using the stippler will lead to a clearer result.
+ The program works best with high-contrast images, adjusting contrast in image-processing software prior to using the stippler may lead to a clearer result.
  
- Currently working on optimizing the program more, since the image initialization step is very slow. It is recommended to keep images smaller than 800x800 pixels.
-  
   
   
